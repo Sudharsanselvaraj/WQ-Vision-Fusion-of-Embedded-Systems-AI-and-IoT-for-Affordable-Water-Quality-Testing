@@ -1,28 +1,17 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse
-from datetime import datetime
-import pytz
-import requests
+from app.process import predict_from_pil_image
 from PIL import Image
 import io
-from app.process import predict_from_pil_image
+from datetime import datetime
+import pytz
 
 app = FastAPI(title="Testing Kit Water Analyzer")
 
-ESP32_IP = "172.20.10.4"  # Replace with your ESP32-CAM IP
-ESP32_CAPTURE_ENDPOINT = f"http://{ESP32_IP}/capture"
-
-@app.get("/analyze_kit")
-async def analyze_kit():
+@app.post("/analyze_kit")
+async def analyze_kit(file: UploadFile = File(...)):
     try:
-        resp = requests.get(ESP32_CAPTURE_ENDPOINT, timeout=5)
-        if resp.status_code != 200:
-            raise HTTPException(status_code=502, detail=f"ESP32 returned status {resp.status_code}")
-        pil_img = Image.open(io.BytesIO(resp.content)).convert("RGB")
-    except Exception as e:
-        raise HTTPException(status_code=502, detail=f"Failed to fetch image from ESP32-CAM: {e}")
-
-    try:
+        pil_img = Image.open(io.BytesIO(await file.read())).convert("RGB")
         results, overall_quality = predict_from_pil_image(pil_img)
         parameters = {k: v["value"] for k, v in results.items()}
 
@@ -37,4 +26,4 @@ async def analyze_kit():
             "overall_quality": overall_quality
         })
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Processing failed: {e}")
+        return JSONResponse(status_code=500, content={"status": "error", "detail": str(e)})
