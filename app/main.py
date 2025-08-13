@@ -9,7 +9,7 @@ from app.process import predict_from_pil_image
 
 app = FastAPI(title="Testing Kit Water Analyzer")
 
-ESP32_IP = "192.168.1.100"  # Replace with your ESP32-CAM IP
+ESP32_IP = "172.20.10.4"  # Replace with your ESP32-CAM IP
 ESP32_CAPTURE_ENDPOINT = f"http://{ESP32_IP}/capture"
 
 @app.get("/analyze_kit")
