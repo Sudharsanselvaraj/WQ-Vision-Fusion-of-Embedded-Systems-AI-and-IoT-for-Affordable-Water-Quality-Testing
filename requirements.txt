@@ -1,1 +1,8 @@
-
+fastapi==0.111.2
+uvicorn[standard]==0.23.2
+pillow==10.0.0
+numpy==1.27.0
+opencv-python-headless==4.8.1.78
+tensorflow==2.15.0
+requests==2.32.0
+pytz==2025.8
