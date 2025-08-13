@@ -8,4 +8,4 @@ services:
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: ESP32_IP
-        value: "192.168.1.100" # Replace with your ESP32-CAM IP
+        value: "172.20.10.4" # Replace with your ESP32-CAM IP
