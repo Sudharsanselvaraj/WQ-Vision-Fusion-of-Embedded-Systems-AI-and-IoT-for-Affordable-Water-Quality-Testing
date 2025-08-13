@@ -5,8 +5,9 @@ import tensorflow as tf
 from PIL import Image
 from app.utils import denormalize, classify_status
 
-MODEL_DIR = os.path.join(os.getcwd(), "models")
+# Parameters
 PARAM_ORDER = ["Nitrate", "Nitrite", "Chlorine", "Hardness", "Carbonate", "pH"]
+MODEL_DIR = os.path.join(os.getcwd(), "models")
 IMG_SIZE = (128, 128)
 EXPECTED_PADS = len(PARAM_ORDER)
 
@@ -19,20 +20,20 @@ for param in PARAM_ORDER:
     else:
         models[param] = None
 
-# Preprocess
+# Preprocess image crop for model
 def preprocess(img):
     img = cv2.resize(img, IMG_SIZE)
     img = img.astype("float32") / 255.0
     return np.expand_dims(img, axis=0)
 
-# Prediction
+# Predict values from a PIL image
 def predict_from_pil_image(pil_img):
     img_np = np.array(pil_img)
     img_bgr = cv2.cvtColor(img_np, cv2.COLOR_RGB2BGR)
 
     h, w = img_bgr.shape[:2]
     box_width = w // EXPECTED_PADS
-    boxes = [(i*box_width, 0, box_width, h) for i in range(EXPECTED_PADS)]
+    boxes = [(i * box_width, 0, box_width, h) for i in range(EXPECTED_PADS)]
 
     results = {}
     for i, param in enumerate(PARAM_ORDER):
@@ -46,13 +47,15 @@ def predict_from_pil_image(pil_img):
             pred_val = float(model.predict(inp, verbose=0)[0][0])
 
         real_val = denormalize(param, pred_val)
-        results[param if param != "Hardness" else "Total Hardness"] = {
-            "value": real_val
-        }
+        key_name = "Total Hardness" if param == "Hardness" else param
+        results[key_name] = {"value": real_val}
 
-    # Overall quality (simple logic)
-    safe_count = sum(1 for v in results.values() if classify_status(v["value"], v["value"])=="safe")
+    # Calculate overall quality
+    safe_count = sum(
+        1 for param_name, v in results.items() if classify_status(param_name, v["value"]) == "safe"
+    )
     perc = (safe_count / len(results)) * 100
+
     if perc >= 90:
         overall_quality = "Excellent"
     elif perc >= 70:
