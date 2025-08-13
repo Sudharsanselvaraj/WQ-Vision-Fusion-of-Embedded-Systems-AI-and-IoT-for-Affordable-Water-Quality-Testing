@@ -4,25 +4,23 @@ from datetime import datetime
 import pytz
 from PIL import Image
 import io
-from app.process import predict_from_pil_image  # your existing prediction logic
+from app.process import predict_from_pil_image
 
 app = FastAPI(title="Testing Kit Water Analyzer")
 
-@app.post("/analyze_kit")
+@app.post("/analyze")
 async def analyze_kit(request: Request):
     try:
-        # Read raw JPEG bytes from ESP32
-        body = await request.body()
-        if not body:
-            raise HTTPException(status_code=400, detail="No image received")
-        pil_img = Image.open(io.BytesIO(body)).convert("RGB")
+        data = await request.body()
+        if not data:
+            raise HTTPException(status_code=400, detail="No image data received")
+
+        pil_img = Image.open(io.BytesIO(data)).convert("RGB")
     except Exception as e:
-        raise HTTPException(status_code=400, detail=f"Failed to read image: {e}")
+        raise HTTPException(status_code=400, detail=f"Invalid image: {e}")
 
     try:
-        # Predict parameters
         results, overall_quality = predict_from_pil_image(pil_img)
-        parameters = {k: v["value"] for k, v in results.items()}
 
         tz = pytz.timezone("Asia/Kolkata")
         now = datetime.now(tz)
@@ -31,7 +29,7 @@ async def analyze_kit(request: Request):
         return JSONResponse(content={
             "status": "success",
             "timestamp": timestamp_str,
-            "parameters": parameters,
+            "parameters": {k: v["value"] for k, v in results.items()},
             "overall_quality": overall_quality
         })
     except Exception as e:
