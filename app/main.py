@@ -1,5 +1,6 @@
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
 from datetime import datetime
 import pytz
 from PIL import Image
@@ -11,6 +12,12 @@ app = FastAPI(title="Testing Kit Water Analyzer")
 
 # Set your deployed domain here
 BASE_URL = "https://wqvision-testing-kit.onrender.com"  # Change if needed
+
+# Create images folder if it doesn't exist
+os.makedirs("images", exist_ok=True)
+
+# Mount static files (serve /images/* URLs from local images folder)
+app.mount("/images", StaticFiles(directory="images"), name="images")
 
 @app.post("/analyze")
 async def analyze_kit(request: Request):
@@ -32,7 +39,6 @@ async def analyze_kit(request: Request):
         timestamp_str = now.strftime("%Y-%m-%d %I:%M %p %Z")
         filename = now.strftime("%Y%m%d_%H%M%S") + ".jpg"
         save_path = os.path.join("images", filename)
-        os.makedirs("images", exist_ok=True)
         pil_img.save(save_path)
 
         # Build full image URL
