@@ -13,6 +13,9 @@ os.makedirs("received_images", exist_ok=True)
 
 app = FastAPI(title="Testing Kit Water Analyzer")
 
+# Your deployed domain (change if different)
+BASE_URL = "https://wqvision-testing-kit.onrender.com"
+
 # Serve images directory as static files
 app.mount("/images", StaticFiles(directory="received_images"), name="images")
 
@@ -47,12 +50,15 @@ async def analyze_kit(request: Request):
         # Format readable timestamp for response
         human_time = now.strftime("%Y-%m-%d %I:%M %p %Z")
 
+        # Build full image URL
+        full_image_url = f"{BASE_URL}/images/{filename}"
+
         return JSONResponse(content={
             "status": "success",
             "timestamp": human_time,
             "parameters": {k: v["value"] for k, v in results.items()},
             "overall_quality": overall_quality,
-            "image_url": f"/images/{filename}"
+            "image_url": full_image_url
         })
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Processing failed: {e}")
