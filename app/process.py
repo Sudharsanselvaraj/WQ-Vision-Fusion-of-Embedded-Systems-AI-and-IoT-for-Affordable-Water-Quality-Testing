@@ -20,13 +20,11 @@ for param in PARAM_ORDER:
     else:
         models[param] = None
 
-# Preprocess image crop for model
 def preprocess(img):
     img = cv2.resize(img, IMG_SIZE)
     img = img.astype("float32") / 255.0
     return np.expand_dims(img, axis=0)
 
-# Predict values from a PIL image
 def predict_from_pil_image(pil_img):
     img_np = np.array(pil_img)
     img_bgr = cv2.cvtColor(img_np, cv2.COLOR_RGB2BGR)
@@ -50,9 +48,9 @@ def predict_from_pil_image(pil_img):
         key_name = "Total Hardness" if param == "Hardness" else param
         results[key_name] = {"value": real_val}
 
-    # Calculate overall quality
     safe_count = sum(
-        1 for param_name, v in results.items() if classify_status(param_name, v["value"]) == "safe"
+        1 for param_name, v in results.items()
+        if classify_status(param_name, v["value"]) == "safe"
     )
     perc = (safe_count / len(results)) * 100
 
