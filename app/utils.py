@@ -1,10 +1,6 @@
-import cv2
-import numpy as np
-
-# Denormalize normalized value to real-world parameter
 def denormalize(param, normalized_val):
     ranges = {
-        "Nitrate": (0, 250),       # ppm
+        "Nitrate": (0, 250),
         "Nitrite": (0, 10),
         "Chlorine": (0, 3.0),
         "Hardness": (0, 300),
@@ -17,7 +13,6 @@ def denormalize(param, normalized_val):
     real_val = normalized_val * (max_val - min_val) + min_val
     return round(real_val, 3)
 
-# Classify safe/caution/danger
 def classify_status(param, value):
     if value is None:
         return "unknown"
@@ -35,4 +30,3 @@ def classify_status(param, value):
     if v <= 5:
         return "caution"
     return "danger"
-
