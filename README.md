@@ -33,9 +33,9 @@ Access to clean and safe drinking water remains a critical issue. Conventional l
 - **Compact Packaging** → Portable and user-friendly  
 
 #### 📷 Prototype Images  
-| Prototype (External) | Internal View | Close-up (LCD + Modules) | Full Setup |
-|----------------------|---------------|---------------------------|------------|
-| ![Prototype](images/IMG_8115.JPG) | ![Internal](images/IMG_8116.JPG) | ![Close-up](images/IMG_8117.JPG) | ![Setup](images/IMG_8118.JPG) |
+| Prototype (External) | Internal View | Close-up (LCD + Modules) |
+|----------------------|---------------|---------------------------|
+| ![Prototype](images/IMG_8115.JPG) | ![Internal](images/IMG_8116.JPG) | ![Close-up](images/IMG_8117.JPG) |
 
 ---
 
