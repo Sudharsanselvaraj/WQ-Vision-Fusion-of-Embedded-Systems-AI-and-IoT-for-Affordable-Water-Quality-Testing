@@ -1,6 +1,8 @@
 # WQ Vision – AI-Powered Water Quality Testing Kit
 
-## 🖼️ Prototype & System
+---
+
+## 🖼️ Prototype & System  
 
 | Hardware Prototype | Internal View | Close-Up |
 |--------------------|---------------|----------|
@@ -8,17 +10,17 @@
 
 ---
 
-## 🤖 AI-Driven Analysis
+## 🤖 AI-Driven Analysis  
 
 The system captures images of **colorimetric strips** via ESP32-CAM and processes them using a **custom AI model**.  
 
 | AI Workflow | Model Flow |
 |-------------|------------|
-| ![AI Process](IMAGES/IMG_0507.PNG) | ![Strip Analysis](IMAGES/IMG_7581.JPG) |
+| ![AI Workflow](IMAGES/IMG_0507.PNG) | ![Strip Analysis](IMAGES/IMG_7581.JPG) |
 
 ---
 
-## 🌐 Web Dashboard
+## 🌐 Web Dashboard  
 
 The web application (FastAPI + lightweight frontend) allows users to upload strip images and view **real-time predictions**.  
 
@@ -28,23 +30,24 @@ The web application (FastAPI + lightweight frontend) allows users to upload stri
 
 ---
 
-## 🏆 Achievements & Recognition
+## 🏆 Achievements & Recognition  
 
 This project won **1st place at Protothon 1.0 (SRM IST)** 🏅.  
 
 | Event Certificate | Achievement | Judge Panel |
 |-------------------|-------------|-------------|
-| ![Certificate 1](IMAGES/IMG_0509.PNG) | ![Achievement](IMAGES/IMG_7207.HEIC) | ![Judges](IMAGES/IMG_7216.HEIC) |
+| ![Certificate](IMAGES/IMG_0509.PNG) | ![Achievement](IMAGES/IMG_7207.HEIC) | ![Judges](IMAGES/IMG_7216.HEIC) |
 
 Additional Recognition:  
 ![Certificate 2](IMAGES/IMG_7222.HEIC)
 
 ---
 
-## 📌 Project Overview
+## 📌 Project Overview  
 
 **WQ Vision** is an innovative **AI-powered water quality testing system** developed under **SRM Institute of Science and Technology (SRMIST)**.  
 It combines **computer vision**, **embedded systems**, and **machine learning** to detect key water contaminants:  
+
 - Nitrite  
 - Nitrate  
 - Chlorine  
@@ -54,29 +57,29 @@ It combines **computer vision**, **embedded systems**, and **machine learning** 
 
 ---
 
-## ⚙️ Features
+## ⚙️ Features  
 
-1. **Prototype Hardware**  
-   - 16×2 LCD Display  
-   - ESP32-CAM + Antenna  
-   - Lithium-ion Battery + Cooling Fan  
-   - Compact & Portable  
+### Prototype Hardware  
+- 16×2 LCD Display  
+- ESP32-CAM + Antenna  
+- Lithium-ion Battery + Cooling Fan  
+- Compact & Portable  
 
-2. **AI-Driven Analysis**  
-   - Custom ML Model for Strip Detection  
-   - Confidence Categories: `Safe | Confidence | Caution | Danger`  
+### AI-Driven Analysis  
+- Custom ML Model for Strip Detection  
+- Confidence Categories: `Safe | Confidence | Caution | Danger`  
 
-3. **Web Dashboard**  
-   - Upload Strip Images  
-   - PPM Scale Results + Health Guidance  
+### Web Dashboard  
+- Upload Strip Images  
+- PPM Scale Results + Health Guidance  
 
-4. **IoT + AI Fusion**  
-   - Real-time data transmission  
-   - Embedded + Web + AI pipeline  
+### IoT + AI Fusion  
+- Real-time data transmission  
+- Embedded + Web + AI pipeline  
 
 ---
 
-## 📊 Tech Stack
+## 📊 Tech Stack  
 
 | Component          | Tools / Frameworks |
 |--------------------|---------------------|
@@ -89,7 +92,7 @@ It combines **computer vision**, **embedded systems**, and **machine learning** 
 
 ---
 
-## 🚀 Future Scope
+## 🚀 Future Scope  
 - Expansion to detect **heavy metals & microbial presence**  
 - Mobile app integration  
 - Cloud backend for analytics  
@@ -97,7 +100,8 @@ It combines **computer vision**, **embedded systems**, and **machine learning** 
 
 ---
 
-## 🙌 Acknowledgements
+## 🙌 Acknowledgements  
+
 Developed at **SRM Institute of Science and Technology (SRMIST)**.  
 🏅 Awarded **1st place at Protothon 1.0** for innovation and real-world impact.  
 
