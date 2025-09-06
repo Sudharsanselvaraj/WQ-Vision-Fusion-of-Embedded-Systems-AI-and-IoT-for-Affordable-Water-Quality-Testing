@@ -1,110 +1,113 @@
 # WQ Vision – AI-Powered Water Quality Testing Kit
 
----
+## Project Overview  
+**WQ Vision** is an innovative **AI-powered water quality testing system** developed under the **SRM Institute of Science and Technology (SRMIST)**.  
+It integrates **embedded hardware, IoT, and machine learning** to detect critical water parameters from **colorimetric test strips**.  
 
-## 🖼️ Prototype & System  
+The system is designed to be:  
+- Affordable  
+- Portable  
+- Easy to use in the field  
+- Accurate for community water quality monitoring  
 
-| Hardware Prototype | Internal View | Close-Up |
-|--------------------|---------------|----------|
-| ![Prototype](IMAGES/IMG_0505.PNG) | ![Internal](IMAGES/IMG_0506.PNG) | ![Close-Up](IMAGES/IMG_7477.JPG) |
-
----
-
-## 🤖 AI-Driven Analysis  
-
-The system captures images of **colorimetric strips** via ESP32-CAM and processes them using a **custom AI model**.  
-
-| AI Workflow | Model Flow |
-|-------------|------------|
-| ![AI Workflow](IMAGES/IMG_0507.PNG) | ![Strip Analysis](IMAGES/IMG_7581.JPG) |
+By combining **ESP32-CAM based image capture**, a **custom computer vision pipeline**, and a **FastAPI-powered web dashboard**, WQ Vision provides **real-time contaminant detection** and **safety classification**.
 
 ---
 
-## 🌐 Web Dashboard  
+## Problem Statement  
+Access to clean and safe drinking water remains a critical issue. Conventional laboratory testing is:  
+- Time-consuming  
+- Expensive  
+- Requires specialized equipment  
 
-The web application (FastAPI + lightweight frontend) allows users to upload strip images and view **real-time predictions**.  
-
-| Dashboard UI |
-|--------------|
-| ![Web Dashboard](IMAGES/IMG_0508.PNG) |
-
----
-
-## 🏆 Achievements & Recognition  
-
-This project won **1st place at Protothon 1.0 (SRM IST)** 🏅.  
-
-| Event Certificate | Achievement | Judge Panel |
-|-------------------|-------------|-------------|
-| ![Certificate](IMAGES/IMG_0509.PNG) | ![Achievement](IMAGES/IMG_7207.HEIC) | ![Judges](IMAGES/IMG_7216.HEIC) |
-
-Additional Recognition:  
-![Certificate 2](IMAGES/IMG_7222.HEIC)
+**WQ Vision** solves this by offering a **low-cost, portable testing kit** that leverages **AI and IoT** for **on-the-spot water quality analysis**.
 
 ---
 
-## 📌 Project Overview  
-
-**WQ Vision** is an innovative **AI-powered water quality testing system** developed under **SRM Institute of Science and Technology (SRMIST)**.  
-It combines **computer vision**, **embedded systems**, and **machine learning** to detect key water contaminants:  
-
-- Nitrite  
-- Nitrate  
-- Chlorine  
-- Total Hardness  
-- Carbonate  
-- pH  
-
----
-
-## ⚙️ Features  
+## System Features  
 
 ### Prototype Hardware  
-- 16×2 LCD Display  
-- ESP32-CAM + Antenna  
-- Lithium-ion Battery + Cooling Fan  
-- Compact & Portable  
+- **ESP32-CAM with antenna** → Captures strip images & transmits wirelessly  
+- **16×2 LCD Display** → Displays test results instantly  
+- **Lithium-ion Battery with Cooling Fan** → Ensures stable, standalone operation  
+- **Compact Packaging** → Portable and user-friendly  
 
 ### AI-Driven Analysis  
-- Custom ML Model for Strip Detection  
-- Confidence Categories: `Safe | Confidence | Caution | Danger`  
+- Captures strip images using ESP32-CAM  
+- Processes them through a **custom-trained AI model**  
+- Detects and quantifies **six key parameters**:  
+  - Nitrite  
+  - Nitrate  
+  - Chlorine  
+  - Total Hardness  
+  - Carbonate  
+  - pH  
+- Classifies results into **four safety categories**:  
+  - Safe  
+  - Confidence  
+  - Caution  
+  - Danger  
 
-### Web Dashboard  
-- Upload Strip Images  
-- PPM Scale Results + Health Guidance  
-
-### IoT + AI Fusion  
-- Real-time data transmission  
-- Embedded + Web + AI pipeline  
+### Web Dashboard (FastAPI + Lightweight Frontend)  
+- Upload water strip images  
+- View **real-time ppm values** with AI inference  
+- Displays safety guidance and health impact commentary  
+- Clean, minimal interface for fast assessment  
 
 ---
 
-## 📊 Tech Stack  
+## Achievements & Recognition  
+- **1st Place Winner** at **Protothon 1.0 (SRM IST)** 🏅  
+- Recognized for **practicality, technical innovation, and social impact**  
+
+---
+
+## System Architecture  
+
+1. **Image Capture (ESP32-CAM)**  
+   → Test strip photo taken and transmitted  
+
+2. **AI Inference (Computer Vision Model)**  
+   → Extracts color features and predicts ppm levels  
+
+3. **Backend Processing (FastAPI)**  
+   → Handles requests, runs inference, sends data  
+
+4. **Output Delivery**  
+   - Results displayed on **LCD hardware module**  
+   - Results available on **Web Dashboard**  
+
+---
+
+## Tech Stack  
 
 | Component          | Tools / Frameworks |
 |--------------------|---------------------|
-| Embedded Hardware  | ESP32-CAM, LCD, Battery, Fan |
-| AI Model           | Custom Computer Vision Pipeline |
-| Backend API        | Python, FastAPI |
-| Frontend Dashboard | HTML, CSS, JS |
-| Deployment         | Local Server / Cloud |
-| IoT Integration    | Wireless Data Transmission |
+| **Embedded Hardware** | ESP32-CAM, LCD, Battery, Fan |
+| **AI Model** | Custom Computer Vision Pipeline |
+| **Backend API** | Python, FastAPI |
+| **Frontend Dashboard** | HTML, CSS, JavaScript |
+| **Deployment** | Local Server / Cloud |
+| **IoT Integration** | Wireless Data Transmission |
 
 ---
 
-## 🚀 Future Scope  
-- Expansion to detect **heavy metals & microbial presence**  
-- Mobile app integration  
-- Cloud backend for analytics  
-- Adaptive calibration for local water standards  
+## Future Scope  
+
+- Extend detection to **heavy metals** and **microbial contaminants**  
+- Develop a **mobile application** for wider accessibility  
+- Enable **cloud backend analytics** for long-term water monitoring  
+- Adaptive calibration for **different geographical water standards**  
 
 ---
 
-## 🙌 Acknowledgements  
+## Acknowledgements  
 
-Developed at **SRM Institute of Science and Technology (SRMIST)**.  
-🏅 Awarded **1st place at Protothon 1.0** for innovation and real-world impact.  
+Developed under the guidance of faculty at **SRM Institute of Science and Technology (SRMIST)**.  
+Special thanks to mentors, peers, and the judging panel at **Protothon 1.0**.  
 
 ---
 
-*“WQ Vision: Bringing intelligent, accessible water quality insights to the field—one strip at a time.”*
+## Key Takeaway  
+
+> *“WQ Vision demonstrates how AI, IoT, and embedded hardware can revolutionize water quality testing, making clean water insights accessible, affordable, and intelligent.”*
