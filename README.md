@@ -66,8 +66,14 @@ Access to clean and safe drinking water remains a critical issue. Conventional l
 ---
 
 ## 🏆 Achievements & Recognition  
-- **1st Place Winner** at **Protothon 1.0 (SRM IST)** 🏅  
+
+- 🥇 **1st Place Winner** at **Protothon 1.0 (SRM IST)** 🏅  
 - Recognized for **practicality, technical innovation, and social impact**  
+
+#### 📸 Event Highlights  
+| Award Certificate | Team Recognition |
+|-------------------|------------------|
+| ![Certificate](images/IMG_8119.JPG) | ![Team](images/IMG_8120.JPG) |
 
 ---
 
