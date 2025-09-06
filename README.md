@@ -1,6 +1,6 @@
-# WQ Vision – AI-Powered Water Quality Testing Kit
+# WQ Vision – AI-Powered Water Quality Testing Kit  
 
-## Project Overview  
+## 📌 Project Overview  
 **WQ Vision** is an innovative **AI-powered water quality testing system** developed under the **SRM Institute of Science and Technology (SRMIST)**.  
 It integrates **embedded hardware, IoT, and machine learning** to detect critical water parameters from **colorimetric test strips**.  
 
@@ -10,29 +10,36 @@ The system is designed to be:
 - Easy to use in the field  
 - Accurate for community water quality monitoring  
 
-By combining **ESP32-CAM based image capture**, a **custom computer vision pipeline**, and a **FastAPI-powered web dashboard**, WQ Vision provides **real-time contaminant detection** and **safety classification**.
+By combining **ESP32-CAM based image capture**, a **custom computer vision pipeline**, and a **FastAPI-powered web dashboard**, WQ Vision provides **real-time contaminant detection** and **safety classification**.  
 
 ---
 
-## Problem Statement  
+## ❓ Problem Statement  
 Access to clean and safe drinking water remains a critical issue. Conventional laboratory testing is:  
 - Time-consuming  
 - Expensive  
 - Requires specialized equipment  
 
-**WQ Vision** solves this by offering a **low-cost, portable testing kit** that leverages **AI and IoT** for **on-the-spot water quality analysis**.
+**WQ Vision** solves this by offering a **low-cost, portable testing kit** that leverages **AI and IoT** for **on-the-spot water quality analysis**.  
 
 ---
 
-## System Features  
+## ⚙️ System Features  
 
-### Prototype Hardware  
+### 🔹 Prototype Hardware  
 - **ESP32-CAM with antenna** → Captures strip images & transmits wirelessly  
 - **16×2 LCD Display** → Displays test results instantly  
 - **Lithium-ion Battery with Cooling Fan** → Ensures stable, standalone operation  
 - **Compact Packaging** → Portable and user-friendly  
 
-### AI-Driven Analysis  
+#### 📷 Prototype Images  
+| Prototype (External) | Internal View | Close-up (LCD + Modules) | Full Setup |
+|----------------------|---------------|---------------------------|------------|
+| ![Prototype](images/IMG_8115.JPG) | ![Internal](images/IMG_8116.JPG) | ![Close-up](images/IMG_8117.JPG) | ![Setup](images/IMG_8118.JPG) |
+
+---
+
+### 🤖 AI-Driven Analysis  
 - Captures strip images using ESP32-CAM  
 - Processes them through a **custom-trained AI model**  
 - Detects and quantifies **six key parameters**:  
@@ -43,12 +50,14 @@ Access to clean and safe drinking water remains a critical issue. Conventional l
   - Carbonate  
   - pH  
 - Classifies results into **four safety categories**:  
-  - Safe  
-  - Confidence  
-  - Caution  
-  - Danger  
+  - ✅ Safe  
+  - ⚠️ Confidence  
+  - ⚡ Caution  
+  - 🚨 Danger  
 
-### Web Dashboard (FastAPI + Lightweight Frontend)  
+---
+
+### 🌐 Web Dashboard (FastAPI + Lightweight Frontend)  
 - Upload water strip images  
 - View **real-time ppm values** with AI inference  
 - Displays safety guidance and health impact commentary  
@@ -56,13 +65,13 @@ Access to clean and safe drinking water remains a critical issue. Conventional l
 
 ---
 
-## Achievements & Recognition  
+## 🏆 Achievements & Recognition  
 - **1st Place Winner** at **Protothon 1.0 (SRM IST)** 🏅  
 - Recognized for **practicality, technical innovation, and social impact**  
 
 ---
 
-## System Architecture  
+## 🏗️ System Architecture  
 
 1. **Image Capture (ESP32-CAM)**  
    → Test strip photo taken and transmitted  
@@ -79,7 +88,7 @@ Access to clean and safe drinking water remains a critical issue. Conventional l
 
 ---
 
-## Tech Stack  
+## 📊 Tech Stack  
 
 | Component          | Tools / Frameworks |
 |--------------------|---------------------|
@@ -92,7 +101,7 @@ Access to clean and safe drinking water remains a critical issue. Conventional l
 
 ---
 
-## Future Scope  
+## 🚀 Future Scope  
 
 - Extend detection to **heavy metals** and **microbial contaminants**  
 - Develop a **mobile application** for wider accessibility  
@@ -101,13 +110,13 @@ Access to clean and safe drinking water remains a critical issue. Conventional l
 
 ---
 
-## Acknowledgements  
+## 🙌 Acknowledgements  
 
 Developed under the guidance of faculty at **SRM Institute of Science and Technology (SRMIST)**.  
 Special thanks to mentors, peers, and the judging panel at **Protothon 1.0**.  
 
 ---
 
-## Key Takeaway  
+## ✨ Key Takeaway  
 
 > *“WQ Vision demonstrates how AI, IoT, and embedded hardware can revolutionize water quality testing, making clean water insights accessible, affordable, and intelligent.”*
